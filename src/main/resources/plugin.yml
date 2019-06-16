@@ -1,0 +1,4 @@
+name: Punishments
+version: ${project.version}
+main: me.ponktacology.punishments.Punishments
+api-version: 1.13

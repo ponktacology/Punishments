@@ -58,7 +58,7 @@ public class PunishmentCommand extends BaseCommand {
             return;
         }
 
-        new Punishment(targetUUID, reason, PunishmentType.TEMPBAN, endTimeStamp);
+        new Punishment(targetUUID, reason, PunishmentType.TEMPBAN, System.currentTimeMillis() + endTimeStamp);
         Player targetPlayer;
 
         if ((targetPlayer = Bukkit.getPlayer(targetUUID)) != null) {

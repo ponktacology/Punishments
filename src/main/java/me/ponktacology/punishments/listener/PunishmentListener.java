@@ -29,6 +29,10 @@ public class PunishmentListener implements Listener {
         if (punishment.getPunishmentType().equals(PunishmentType.PERMBAN)) {
             banMesage += "permanently banned!";
         } else {
+            if (System.currentTimeMillis() - punishment.getEndTimeStamp() < 0) {
+                this.plugin.getPunishmentManager().getPunishments().remove(event.getUniqueId());
+                return;
+            }
             banMesage += "temporary banned!\nYour ban will be lifted on: " + new SimpleDateFormat("dd-MM-yyyy").format(new Date(punishment.getEndTimeStamp()));
         }
 
